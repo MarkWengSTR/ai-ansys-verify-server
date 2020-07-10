@@ -6,8 +6,9 @@ import time
 from software.project.ansys_python_interface import restore_project, close_project, save_project
 
 # setting
-from software.setting.optimetrics_setting import optimetrics_setting, start_analysis, delete_opt_setting
-from software.setting.report_setting import report_setting, report_export, remove_all_report
+from software.setting.optimetrics_setting import optimetrics_setting, delete_opt_setting
+from software.setting.analysis_setting import start_analysis
+from software.setting.report_setting import create_and_export_report
 from software.setting.export_plot_setting import export_model_picture
 
 # postprocess
@@ -48,12 +49,6 @@ def run_ansys(ctx):
     data_folder = str(datetime.date.today()).replace("-", "_") + "_" + time_stamp
     project_path = os.path.join(os.getcwd(), "software", "project")
 
-    report_list = {
-        "torque": ["Moving1.Torque", "Time"],
-        "voltage_line": ["InducedVoltage(PhaseA)-InducedVoltage(PhaseB)", "Time"],
-        "coreloss": ["CoreLoss", "Time"],
-    }
-
     ctx = {
         **ctx,
         "ansys_object": {
@@ -64,7 +59,6 @@ def run_ansys(ctx):
         },
         "data": {
             "spec_params": spec,
-            "report_list": report_list,
             "data_folder": data_folder,
             "project_name": "3_7kw_max",
             "project_path": project_path,
@@ -119,11 +113,8 @@ def run_ansys(ctx):
     restore_project(ctx) and \
         export_model_picture(ctx) and \
         optimetrics_setting(ctx) and \
-        report_setting(ctx) and \
         start_analysis(ctx) and \
-        report_export(ctx) and \
-        delete_opt_setting(ctx) and \
-        remove_all_report(ctx) and \
+        create_and_export_report(ctx) and \
         save_project(ctx) and \
         close_project(ctx) and \
         result_process(ctx)

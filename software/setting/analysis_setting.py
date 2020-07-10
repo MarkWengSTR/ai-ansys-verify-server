@@ -62,7 +62,6 @@ def analysis_setting(ctx):
     return ctx
 
 def start_analysis(ctx):
-    print(ctx["params"]["motor_cal_params"])
     print('Start Analysis')
 
     ctx["data"]["opt_oModule"].SolveSetup(ctx["data"]["opt_name"])

@@ -11,7 +11,6 @@ def restore_project(ctx):
 
     print(ctx["data"]["spec_params"])
 
-    # import ipdb; ipdb.set_trace()
     pythoncom.CoInitialize()
     oAnsoftApp = client.Dispatch("Ansoft.ElectronicsDesktop")
 
