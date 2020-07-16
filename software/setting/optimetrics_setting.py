@@ -1,11 +1,11 @@
 def optimetrics_setting(ctx):
     current     = ctx["response"]["corner_point"]["current"]
     speed       = ctx["response"]["corner_point"]["speed"]
-    wmw         = ctx["data"]["spec_params"]["wmw"]
-    wmt         = ctx["data"]["spec_params"]["wmt"]
-    am          = ctx["data"]["spec_params"]["am"]
-    delta       = ctx["data"]["spec_params"]["delta"]
-    rotor_arc   = ctx["data"]["spec_params"]["R1"]
+    wmw         = ctx["data"]["spec_params"]["ai_response"]["wmw"]
+    wmt         = ctx["data"]["spec_params"]["ai_response"]["wmt"]
+    am          = ctx["data"]["spec_params"]["ai_response"]["am"]
+    delta       = ctx["data"]["spec_params"]["ai_response"]["delta"]
+    rotor_arc   = ctx["data"]["spec_params"]["ai_response"]["R1"]
     opt_name    = ctx["data"]["opt_name"]
     opt_oModule = ctx["ansys_object"]["oDesign"].GetModule("Optimetrics")
 
