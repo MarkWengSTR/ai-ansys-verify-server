@@ -25,7 +25,7 @@ class BackgroundProcess(Thread):
         global ansys_processing_count
         ansys_processing_count -= 1
 
-        print(response.status_code)
+        print(response.content)
 
 @app.route('/verify_by_simu', methods=["POST"])
 def verify_by_simu():
