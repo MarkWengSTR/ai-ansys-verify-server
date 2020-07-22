@@ -47,6 +47,13 @@ def optimetrics_setting(ctx):
                                 ],
                                 [
                                         "NAME:SweepDefinition",
+                                        "Variable:="		, "am",
+                                        "Data:="		, str(am) + "deg",
+                                        "OffsetF1:="		, False,
+                                        "Synchronize:="		, 0
+                                ],
+                                [
+                                        "NAME:SweepDefinition",
                                         "Variable:="		, "wmw",
                                         "Data:="		, str(wmw) + "mm",
                                         "OffsetF1:="		, False,
