@@ -3,7 +3,7 @@ import datetime
 import time
 
 # project
-from software.project.ansys_python_interface import restore_project, close_project, save_project
+from software.project.ansys_python_interface import restore_project, close_project, save_project, clear_data
 
 # setting
 from software.setting.optimetrics_setting import optimetrics_setting, delete_opt_setting
@@ -32,10 +32,10 @@ from postprocess.result import result_process
 
 spec_params = {
     "ai_response":{
-        "wmw":     11,
+        "wmw":     10,
         "wmt":     2.5,
-        "am":      85,
-        "delta":   40,
+        "am":      70,
+        "delta":   20,
         "R1":      0,
     },
     "export_path": None,
@@ -115,11 +115,12 @@ def run_ansys(ctx):
     restore_project(ctx) and \
         export_model_picture(ctx) and \
         optimetrics_setting(ctx) and \
+        save_project(ctx) and \
         start_analysis(ctx) and \
         create_and_export_report(ctx) and \
-        save_project(ctx) and \
-        close_project(ctx) and \
-        result_process(ctx)
+        result_process(ctx) and \
+        clear_data(ctx) and \
+        close_project(ctx)
 
     print(ctx["response"])
     print('Simulation Completed')

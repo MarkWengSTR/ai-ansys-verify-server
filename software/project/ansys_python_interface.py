@@ -33,6 +33,11 @@ def close_project(ctx):
 
     return ctx
 
+def clear_data(ctx):
+    ctx["ansys_object"]["oDesign"].DeleteFullVariation("All", False)
+
+    return ctx
+
 def save_project(ctx):
     project_name = ctx["data"]["project_name"]
     project_path = ctx["data"]["project_path"]
