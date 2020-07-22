@@ -37,6 +37,7 @@ spec_params = {
         "am":      70,
         "delta":   20,
         "R1":      0,
+        "Warning": "",
     },
     "export_path": None,
     "pj_key":      str(int(time.mktime(datetime.datetime.now().timetuple()))),

@@ -8,7 +8,7 @@ def spec_present(ctx):
 
 def data_type_validate(ctx):
     for k, v in ctx["request"]["ai_response"].items():
-        if not v or type(v) == str:
+        if not v:
             ctx["error"]["validate"]["msg"] = "not validate data type"
             return False
     return True
@@ -16,7 +16,7 @@ def data_type_validate(ctx):
 
 def spec_keys_validate(ctx):
     if sorted(ctx["request"]["ai_response"].keys()) == sorted(
-            ["wmw", "wmt", "am", "delta", "R1"]):
+            ["wmw", "wmt", "am", "delta", "R1", "Warning"]):
         return True
     else:
         ctx["error"]["validate"]["msg"] = "not validate keys"
