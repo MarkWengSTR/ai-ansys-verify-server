@@ -32,11 +32,11 @@ from postprocess.result import result_process
 
 spec_params = {
     "ai_response":{
-        "wmw":         11,
-        "wmt":         2.5,
-        "am":          85,
-        "delta":       40,
-        "R1":          0,
+        "wmw":     11,
+        "wmt":     2.5,
+        "am":      85,
+        "delta":   40,
+        "R1":      0,
     },
     "export_path": None,
     "pj_key":      str(int(time.mktime(datetime.datetime.now().timetuple()))),

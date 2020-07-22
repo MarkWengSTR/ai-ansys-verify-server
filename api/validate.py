@@ -7,19 +7,16 @@ def spec_present(ctx):
 
 
 def data_type_validate(ctx):
-    for k, v in ctx["request"].items():
-        if k in ["export_path", "pj_key", "res_url"] :
-            continue
-        else:
-            if not v or type(v) == str:
-                ctx["error"]["validate"]["msg"] = "not validate data type"
-                return False
+    for k, v in ctx["request"]["ai_response"].items():
+        if not v or type(v) == str:
+            ctx["error"]["validate"]["msg"] = "not validate data type"
+            return False
     return True
 
 
 def spec_keys_validate(ctx):
-    if sorted(ctx["request"].keys()) == sorted(
-            ["wmw", "wmt", "am", "delta", "R1", "export_path", "pj_key", "res_url"]):
+    if sorted(ctx["request"]["ai_response"].keys()) == sorted(
+            ["wmw", "wmt", "am", "delta", "R1"]):
         return True
     else:
         ctx["error"]["validate"]["msg"] = "not validate keys"
