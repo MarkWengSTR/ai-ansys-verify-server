@@ -8,9 +8,12 @@ def spec_present(ctx):
 
 def data_type_validate(ctx):
     for k, v in ctx["request"]["ai_response"].items():
-        if not v:
-            ctx["error"]["validate"]["msg"] = "not validate data type"
-            return False
+        if k in ["Warning"]:
+            continue
+        else:
+            if not v or type(v) == str:
+                ctx["error"]["validate"]["msg"] = "not validate data type"
+                return False
     return True
 
 
