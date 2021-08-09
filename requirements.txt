@@ -1,4 +1,4 @@
-pywin32==227
+pywin32==301
 ipdb==0.12.3
 Flask==1.1.2
 Flask-Cors==3.0.8
